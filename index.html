@@ -1,0 +1,1921 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Portfolio PPL | Refleksi & Filosofi Mengajar</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@500;600;700&family=Caveat:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              warmOffWhite: "#FFF9F3",
+              softPaper: "#FFFDF9",
+              navy: "#2D4059",
+              darkText: "#2B2B2B",
+              apricot: "#FFB86C",
+              warmGray: "#E8E2D9",
+            },
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', "sans-serif"],
+              heading: ['"Poppins"', "sans-serif"],
+              handwritten: ['"Caveat"', "cursive"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        background-color: #fff9f3;
+        color: #2b2b2b;
+        -webkit-font-smoothing: antialiased;
+        background-image: radial-gradient(#e8e2d9 1.5px, transparent 1.5px);
+        background-size: 24px 24px;
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #fff9f3;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #2d4059;
+        border-radius: 9999px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #ffb86c;
+      }
+
+      .journal-card {
+        background-color: #fffdf9;
+        border: 2px solid #2d4059;
+        box-shadow: 4px 4px 0px 0px #2d4059;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .journal-card:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 7px 7px 0px 0px #2d4059;
+      }
+
+      .journal-btn {
+        border: 2px solid #2d4059;
+        box-shadow: 3px 3px 0px 0px #2d4059;
+        transition: all 0.15s ease-in-out;
+      }
+      .journal-btn:active {
+        transform: translate(2px, 2px);
+        box-shadow: 1px 1px 0px 0px #2d4059;
+      }
+
+      .portfolio-page {
+        animation: pageReveal 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      @keyframes pageReveal {
+        from {
+          opacity: 0;
+          transform: translateY(12px) scale(0.995);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .washi-tape-apricot {
+        background-color: rgba(255, 184, 108, 0.85);
+        transform: rotate(-3deg);
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12);
+      }
+      .washi-tape-gray {
+        background-color: rgba(232, 226, 217, 0.9);
+        transform: rotate(2deg);
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.08);
+      }
+
+      .gallery-card {
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .gallery-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 10px 10px 0px 0px #2d4059;
+      }
+      .gallery-card .overlay {
+        opacity: 0;
+        transition: opacity 0.35s ease;
+      }
+      .gallery-card:hover .overlay {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body class="font-sans min-h-screen flex flex-col antialiased">
+    <!-- ==================== HEADER ==================== -->
+    <header
+      class="sticky top-0 z-40 bg-warmOffWhite/90 backdrop-blur-md border-b-2 border-navy transition-all duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <a href="#/home" class="flex items-center space-x-3 group">
+            <div
+              class="w-12 h-12 rounded-xl bg-softPaper border-2 border-navy flex items-center justify-center shadow-[2px_2px_0px_0px_#2D4059] group-hover:rotate-6 transition-all duration-300 overflow-hidden p-1.5"
+            >
+              <img
+                src="img/logo.png"
+                alt="Logo UNY"
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <div class="flex flex-col text-left">
+              <span
+                class="font-heading text-base sm:text-lg font-bold tracking-tight text-navy leading-none"
+                >E-Portofolio Heniasi</span
+              >
+              <span
+                class="text-[10px] tracking-wider uppercase text-navy/70 mt-1.5 font-bold"
+                >PPG Calon Guru</span
+              >
+            </div>
+          </a>
+
+          <nav
+            class="hidden lg:flex items-center space-x-1.5 text-xs font-bold uppercase tracking-wider"
+          >
+            <a
+              href="#/home"
+              class="nav-link px-3 py-2 rounded-lg border-2 border-transparent hover:border-navy hover:bg-apricot/20 transition-all text-navy"
+              >Beranda</a
+            >
+          </nav>
+
+          <div class="flex items-center space-x-2.5 lg:hidden">
+            <button
+              id="menuToggleButton"
+              class="p-2 text-navy focus:outline-none"
+              aria-label="Toggle Menu"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="mobileDrawer"
+        class="hidden fixed inset-0 z-50 bg-navy/40 backdrop-blur-sm"
+      >
+        <div
+          class="fixed top-0 right-0 w-72 h-full bg-warmOffWhite shadow-2xl p-6 flex flex-col justify-between border-l-4 border-navy"
+        >
+          <div>
+            <div
+              class="flex justify-between items-center pb-4 border-b-2 border-navy"
+            >
+              <button
+                id="closeDrawerButton"
+                class="p-1 border-2 border-navy rounded-md bg-apricot/25 text-navy focus:outline-none"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.5"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <nav class="flex flex-col space-y-3 mt-6 text-left">
+              <a
+                href="#/home"
+                class="mobile-nav-link block px-3 py-2 rounded-lg font-bold hover:bg-apricot/20 text-navy"
+                >Beranda</a
+              >
+            </nav>
+          </div>
+          <div
+            class="text-[10px] text-navy/60 font-bold text-center border-t border-navy/20 pt-4"
+          >
+            © 2026 • Heniasi, S.Pd.
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <!-- ==================== PAGE HOME ==================== -->
+      <section id="page-home" class="portfolio-page hidden space-y-16">
+        <!-- Hero Section -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-softPaper rounded-3xl border-2 border-navy p-6 sm:p-10 shadow-[6px_6px_0px_0px_#2D4059] relative overflow-hidden"
+        >
+          <div
+            class="absolute top-0 right-0 w-24 h-24 bg-apricot/15 rounded-bl-full pointer-events-none"
+          ></div>
+          <div class="lg:col-span-5 flex flex-col items-center">
+            <div
+              class="bg-softPaper border-2 border-navy p-4 pb-8 rounded-md shadow-lg transform -rotate-2 hover:rotate-0 transition-transform duration-300 w-full max-w-sm relative"
+            >
+              <div
+                class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-28 h-6 washi-tape-apricot flex items-center justify-center text-[10px] font-bold text-navy tracking-wider uppercase"
+              ></div>
+              <div
+                class="aspect-square bg-warmOffWhite rounded-sm border border-navy/30 overflow-hidden relative"
+              >
+                <img
+                  src="img/foto diri 1.jpeg"
+                  alt="Foto Heniasi"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div class="mt-4 text-center">
+                <span class="font-handwritten text-3xl font-bold text-navy"
+                  >Heniasi, S.Pd.</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-7 space-y-6 text-left">
+            <div
+              class="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-navy bg-apricot/30 px-3 py-1 rounded-full border border-navy"
+            >
+              Pendidikan Teknologi Informasi / Informatika
+            </div>
+            <h1
+              class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-navy"
+            >
+              Jejak <br /><span
+                class="text-navy underline decoration-apricot decoration-wavy decoration-3"
+                >Pengembangan Diri</span
+              >
+            </h1>
+            <p class="text-sm sm:text-base text-darkText leading-relaxed">
+              Selamat datang di portofolio yang mendokumentasikan perjalanan,
+              pengalaman, dan perkembangan saya selama praktik mengajar di SMK
+              Negeri 2 Yogyakarta.
+            </p>
+            <div class="pt-2 flex flex-wrap gap-4">
+              <a
+                href="#/portofolio1"
+                class="journal-btn inline-flex items-center justify-center px-6 py-3.5 bg-softPaper text-navy text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-apricot/15 transition-all"
+                >E‑Portofolio 1</a
+              >
+              <a
+                href="#/portofolio2"
+                class="journal-btn inline-flex items-center justify-center px-6 py-3.5 bg-softPaper text-navy text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-apricot/15 transition-all"
+                >E‑Portofolio 2</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== MOMEN BERHARGA PPL - UPDATED ==================== -->
+        <div class="space-y-10">
+          <div class="text-center">
+            <span class="font-handwritten text-3xl text-navy font-bold block"
+              >Momen Berharga PPL 📸</span
+            >
+            <h2
+              class="font-heading text-xl sm:text-2xl font-bold text-navy mt-2"
+            >
+              Dokumentasi Singkat Perjalanan Praktik
+            </h2>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Foto 1 -->
+            <div class="gallery-card journal-card rounded-2xl overflow-hidden cursor-pointer group relative">
+              <div class="aspect-[4/3] bg-gradient-to-br from-navy/80 to-navy/40 relative overflow-hidden">
+                <img
+                  src="img/bimbingandpl.jpeg"
+                  alt="Momen Mengajar 1"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div class="overlay absolute inset-0 bg-navy/50 flex items-end p-4">
+                  <p class="text-warmOffWhite text-xs font-bold tracking-wide"></p>
+                </div>
+              </div>
+              <div class="p-3 bg-softPaper">
+                <p class="text-xs text-navy/80 italic"></p>
+              </div>
+            </div>
+
+            <!-- Foto 2 -->
+            <div class="gallery-card journal-card rounded-2xl overflow-hidden cursor-pointer group relative">
+              <div class="aspect-[4/3] bg-gradient-to-br from-apricot/60 to-navy/60 relative overflow-hidden">
+                <img
+                  src="img/bimbingangp.jpeg"
+                  alt="Momen Mengajar 2"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div class="overlay absolute inset-0 bg-navy/50 flex items-end p-4">
+                  <p class="text-warmOffWhite text-xs font-bold tracking-wide"></p>
+                </div>
+              </div>
+              <div class="p-3 bg-softPaper">
+                <p class="text-xs text-navy/80 italic"></p>
+              </div>
+            </div>
+
+            <!-- Foto 3 -->
+            <div class="gallery-card journal-card rounded-2xl overflow-hidden cursor-pointer group relative">
+              <div class="aspect-[4/3] bg-gradient-to-br from-green-300/60 to-navy/60 relative overflow-hidden">
+                <img
+                  src="img/kegiatan.jpeg"
+                  alt="Momen Mengajar 3"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div class="overlay absolute inset-0 bg-navy/50 flex items-end p-4">
+                  <p class="text-warmOffWhite text-xs font-bold tracking-wide"></p>
+                </div>
+              </div>
+              <div class="p-3 bg-softPaper">
+                <p class="text-xs text-navy/80 italic"></p>
+              </div>
+            </div>
+
+            <!-- Foto 4 -->
+            <div class="gallery-card journal-card rounded-2xl overflow-hidden cursor-pointer group relative">
+              <div class="aspect-[4/3] bg-gradient-to-br from-purple-300/60 to-navy/60 relative overflow-hidden">
+                <img
+                  src="img/mengajar 2.jpeg"
+                  alt="Hasil Karya Siswa"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div class="overlay absolute inset-0 bg-navy/50 flex items-end p-4">
+                  <p class="text-warmOffWhite text-xs font-bold tracking-wide"></p>
+                </div>
+              </div>
+              <div class="p-3 bg-softPaper">
+                <p class="text-xs text-navy/80 italic"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ==================== END MOMEN BERHARGA PPL ==================== -->
+      </section>
+
+      <!-- ==================== E-PORTOFOLIO 1 ==================== -->
+      <section
+        id="page-portofolio1"
+        class="portfolio-page hidden max-w-4xl mx-auto space-y-12"
+      >
+        <div class="text-center space-y-2">
+          <span class="font-handwritten text-3xl text-navy font-bold block"
+            >📂 E‑Portofolio 1</span
+          >
+          <h2 class="font-heading text-2xl sm:text-3xl font-bold text-navy">
+            Kompetensi Pedagogik & Profesional
+          </h2>
+          <div class="w-24 h-1.5 bg-apricot mx-auto rounded-full"></div>
+        </div>
+
+        <!-- Profil Mahasiswa -->
+        <div class="journal-card p-6 sm:p-8 rounded-3xl space-y-6">
+          <h3
+            class="font-heading text-xl font-bold text-navy flex items-center gap-2"
+          >
+            👤 Profil Mahasiswa
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="md:col-span-1 flex flex-col items-center">
+              <div
+                class="w-24 h-24 rounded-full border-2 border-navy overflow-hidden bg-warmOffWhite"
+              >
+                <img
+                  src="img/foto diri 2.jpeg"
+                  alt="Heniasi"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <span class="font-handwritten text-2xl text-navy mt-3"
+                >Heniasi</span
+              >
+              <p class="text-xs text-navy/70 font-medium">
+                Singkawang, Kalimantan Barat
+              </p>
+            </div>
+            <div
+              class="md:col-span-2 space-y-3 text-sm text-darkText leading-relaxed"
+            >
+              <p>
+                Saya Heniasi, lahir dan besar di <strong>Singkawang</strong>,
+                kota yang dikenal dengan seribu kelenteng dan kerukunan
+                antaretnis yang kuat. Keunikan daerah asal saya mengajarkan
+                nilai toleransi, keterbukaan, dan semangat gotong
+                royong—nilai‑nilai yang selalu saya bawa dalam setiap interaksi
+                dengan siswa yang beragam.
+              </p>
+              <p>
+                Inspirasi menjadi guru hadir dari pengalaman melihat kesenjangan
+                literasi digital di sekitar saya. Saya percaya bahwa pendidikan
+                Informatika yang humanis mampu menjembatani mimpi anak‑anak,
+                tidak hanya di kota besar tetapi juga di daerah pinggiran.
+                Tujuan saya adalah menjadi
+                <strong>guru profesional yang adaptif</strong>, menginspirasi
+                siswa berpikir kritis, kreatif, dan tetap membumi pada
+                nilai‑nilai kemanusiaan.
+              </p>
+              <div
+                class="bg-apricot/10 border-l-4 border-apricot p-4 rounded-r-xl"
+              >
+                <p
+                  class="font-handwritten text-xl text-navy italic leading-relaxed"
+                >
+                  “Mendidik adalah menyalakan api, bukan mengisi wadah.”
+                </p>
+                <p class="text-[10px] font-bold text-navy mt-1">
+                  — Socrates (dimodifikasi)
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Artefak Perangkat Pembelajaran -->
+        <div class="journal-card p-6 sm:p-8 rounded-3xl space-y-8">
+          <h3
+            class="font-heading text-xl font-bold text-navy flex items-center gap-2"
+          >
+            📚 Artefak Perangkat Pembelajaran
+          </h3>
+          <!-- siklus rpp-->
+          <div class="mb-12">
+            <!-- Judul Bagian -->
+            <div class="flex items-center gap-3 mb-8">
+              <div class="p-3 bg-[#E8F0FE] text-[#1967D2] rounded-xl shadow-sm">
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  ></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-[#2D4059] font-['Poppins']">
+                Modul Ajar / RPP & Analisis PPL Terbimbing
+              </h3>
+            </div>
+
+            <div class="space-y-10">
+              <!-- SECTION SIKLUS 1 -->
+              <div
+                class="bg-white rounded-2xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden"
+              >
+                <!-- Header Siklus -->
+                <div class="bg-[#E8F0FE] px-6 py-4 border-b border-[#D2E3FC]">
+                  <h4
+                    class="text-lg font-bold text-[#1967D2] font-['Poppins'] flex items-center gap-2"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
+                    </svg>
+                    Siklus 1: Observasi & Adaptasi Pedagogik
+                  </h4>
+                </div>
+
+                <div class="p-6 grid grid-cols-1 lg:grid-cols-1">
+                  <!-- Kolom Kiri: PDF Preview -->
+                  <div class="lg:col-span-4 flex flex-col h-full">
+                    <div
+                      class="w-full h-[350px] bg-gray-50 rounded-xl border border-gray-200 overflow-hidden relative mb-4"
+                    >
+                      <div
+                        class="absolute inset-0 flex flex-col items-center justify-center z-0 text-gray-400"
+                      >
+                        <svg
+                          class="w-10 h-10 mb-2 opacity-50"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.5"
+                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                          ></path>
+                        </svg>
+                        <span class="text-sm font-medium"
+                          >Memuat Dokumen...</span
+                        >
+                      </div>
+                      <iframe
+                        src="dokumen/siklus1.pdf"
+                        class="w-full h-full relative z-10 bg-transparent"
+                        title="RPP Siklus 1"
+                      ></iframe>
+                    </div>
+                    <a
+                      href="dokumen/siklus1.pdf"
+                      download="RPP_Siklus_1.pdf"
+                      class="mt-auto w-full flex items-center justify-center gap-2 py-2.5 bg-[#2D4059] text-white rounded-xl hover:bg-[#1a2636] transition-colors font-semibold text-sm"
+                    >
+                      <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2.5"
+                          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                        ></path>
+                      </svg>
+                      Unduh RPP Siklus 1
+                    </a>
+                  </div>
+
+                  <!-- Kolom Kanan: Penjelasan Analisis -->
+                  <div class="lg:col-span-8 space-y-4 text-gray-700">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div
+                        class="bg-gray-50 p-4 rounded-xl border border-gray-100"
+                      >
+                        <h5
+                          class="font-bold text-[#2D4059] mb-2 flex items-center gap-2"
+                        >
+                          <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                          Konteks
+                        </h5>
+                        <p class="text-sm leading-relaxed">
+                          RPP Siklus 1 disusun pada tahap awal PPL Terbimbing.
+                          Fokus utama adalah mengimplementasikan hasil observasi
+                          karakteristik peserta didik untuk membangun rutinitas
+                          kelas dasar dan menguji instrumen asesmen diagnostik
+                          kognitif maupun non-kognitif.
+                        </p>
+                      </div>
+                      <div
+                        class="bg-gray-50 p-4 rounded-xl border border-gray-100"
+                      >
+                        <h5
+                          class="font-bold text-[#2D4059] mb-2 flex items-center gap-2"
+                        >
+                          <span
+                            class="w-2 h-2 rounded-full bg-green-500"
+                          ></span>
+                          Tujuan
+                        </h5>
+                        <p class="text-sm leading-relaxed">
+                          Menciptakan lingkungan belajar yang kondusif (safe
+                          space), mengenalkan aturan kelas, serta memetakan
+                          tingkat pemahaman awal siswa agar perancangan
+                          pembelajaran selanjutnya lebih terarah.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div
+                        class="bg-gray-50 p-4 rounded-xl border border-gray-100"
+                      >
+                        <h5
+                          class="font-bold text-[#2D4059] mb-2 flex items-center gap-2"
+                        >
+                          <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+                          Kelebihan
+                        </h5>
+                        <p class="text-sm leading-relaxed">
+                          Pendekatan sangat terstruktur dengan instruksi yang
+                          jelas (Direct Instruction).
+                          <i>Scaffolding</i> diberikan secara penuh sehingga
+                          siswa yang kesulitan masih dapat mengikuti ritme
+                          pembelajaran.
+                        </p>
+                      </div>
+                      <div
+                        class="bg-gray-50 p-4 rounded-xl border border-gray-100"
+                      >
+                        <h5
+                          class="font-bold text-[#2D4059] mb-2 flex items-center gap-2"
+                        >
+                          <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                          Kekurangan
+                        </h5>
+                        <p class="text-sm leading-relaxed">
+                          Pembelajaran belum sepenuhnya berdiferensiasi.
+                          Manajemen waktu saat transisi antar aktivitas kurang
+                          optimal karena penyesuaian awal dinamika kelas bersama
+                          guru pamong.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div
+                      class="bg-[#FFF9F3] p-4 rounded-xl border border-[#F2E5D5] mt-2"
+                    >
+                      <h5
+                        class="font-bold text-[#E67E22] mb-2 flex items-center gap-2"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"
+                          ></path>
+                        </svg>
+                        Analisis Kajian Teori (Integrasi PPL Terbimbing)
+                      </h5>
+                      <p class="text-sm leading-relaxed text-gray-800">
+                        Praktik di Siklus 1 selaras dengan
+                        <b
+                          >Teori Perkembangan Kognitif Vygotsky (Zone of
+                          Proximal Development/ZPD)</b
+                        >. Sebagai praktikan PPL, pemberian
+                        <i>scaffolding</i> penuh di fase awal ini diperlukan
+                        saat siswa menemui materi baru. Dalam kerangka PPL
+                        Terbimbing, siklus ini memvalidasi pentingnya asesmen
+                        awal (Understanding by Design) sebelum melangkah ke
+                        diferensiasi tingkat lanjut, di mana bimbingan dari Guru
+                        Pamong sangat ditekankan pada penguasaan kelas.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SECTION SIKLUS 2 -->
+              <div
+                class="bg-white rounded-2xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden"
+              >
+                <div class="bg-[#E8F0FE] px-6 py-4 border-b border-[#D2E3FC]">
+                  <h4
+                    class="text-lg font-bold text-[#1967D2] font-['Poppins'] flex items-center gap-2"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
+                    </svg>
+                    Siklus 2: Implementasi Pembelajaran Berdiferensiasi
+                  </h4>
+                </div>
+
+                <div class="p-6 grid grid-cols-1 lg:grid-cols-1">
+                  <div class="lg:col-span-4 flex flex-col h-full">
+                    <div
+                      class="w-full h-[350px] bg-gray-50 rounded-xl border border-gray-200 overflow-hidden relative mb-4"
+                    >
+                      <div
+                        class="absolute inset-0 flex flex-col items-center justify-center z-0 text-gray-400"
+                      >
+                        <svg
+                          class="w-10 h-10 mb-2 opacity-50"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.5"
+                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                          ></path>
+                        </svg>
+                        <span class="text-sm font-medium"
+                          >Memuat Dokumen...</span
+                        >
+                      </div>
+                      <iframe
+                        src="dokumen/siklus2.pdf"
+                        class="w-full h-full relative z-10 bg-transparent"
+                        title="RPP Siklus 2"
+                      ></iframe>
+                    </div>
+                    <a
+                      href="dokumen/siklus2.pdf"
+                      download="RPP_Siklus_2.pdf"
+                      class="mt-auto w-full flex items-center justify-center gap-2 py-2.5 bg-[#2D4059] text-white rounded-xl hover:bg-[#1a2636] transition-colors font-semibold text-sm"
+                    >
+                      <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2.5"
+                          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                        ></path>
+                      </svg>
+                      Unduh RPP Siklus 2
+                    </a>
+                  </div>
+
+                  <div class="lg:col-span-8 space-y-4 text-gray-700">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div
+                        class="bg-gray-50 p-4 rounded-xl border border-gray-100"
+                      >
+                        <h5
+                          class="font-bold text-[#2D4059] mb-2 flex items-center gap-2"
+                        >
+                          <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                          Konteks
+                        </h5>
+                        <p class="text-sm leading-relaxed">
+                          Berangkat dari refleksi Siklus 1, RPP ini memfokuskan
+                          pada pemenuhan kebutuhan belajar murid. Modul
+                          dirancang dengan menyediakan berbagai opsi sumber
+                          belajar (materi visual, audio, kinestetik) dan
+                          penugasan yang lebih fleksibel.
+                        </p>
+                      </div>
+                      <div
+                        class="bg-gray-50 p-4 rounded-xl border border-gray-100"
+                      >
+                        <h5
+                          class="font-bold text-[#2D4059] mb-2 flex items-center gap-2"
+                        >
+                          <span
+                            class="w-2 h-2 rounded-full bg-green-500"
+                          ></span>
+                          Tujuan
+                        </h5>
+                        <p class="text-sm leading-relaxed">
+                          Mengakomodasi gaya belajar peserta didik yang
+                          heterogen untuk meningkatkan keterlibatan aktif dan
+                          motivasi intrinsik dalam pembelajaran melalui
+                          diferensiasi konten dan proses.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div
+                        class="bg-gray-50 p-4 rounded-xl border border-gray-100"
+                      >
+                        <h5
+                          class="font-bold text-[#2D4059] mb-2 flex items-center gap-2"
+                        >
+                          <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+                          Kelebihan
+                        </h5>
+                        <p class="text-sm leading-relaxed">
+                          Partisipasi dan antusiasme siswa meningkat tajam
+                          karena mereka difasilitasi sesuai gaya belajar
+                          masing-masing. Terjadi iklim pembelajaran yang
+                          inklusif dan tidak monoton.
+                        </p>
+                      </div>
+                      <div
+                        class="bg-gray-50 p-4 rounded-xl border border-gray-100"
+                      >
+                        <h5
+                          class="font-bold text-[#2D4059] mb-2 flex items-center gap-2"
+                        >
+                          <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                          Kekurangan
+                        </h5>
+                        <p class="text-sm leading-relaxed">
+                          Persiapan materi ajar jauh lebih kompleks dan menyita
+                          waktu. Saat pelaksanaan, guru cukup kewalahan memantau
+                          kelompok kinestetik yang cenderung lebih aktif
+                          bergerak.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div
+                      class="bg-[#FFF9F3] p-4 rounded-xl border border-[#F2E5D5] mt-2"
+                    >
+                      <h5
+                        class="font-bold text-[#E67E22] mb-2 flex items-center gap-2"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"
+                          ></path>
+                        </svg>
+                        Analisis Kajian Teori (Integrasi PPL Terbimbing)
+                      </h5>
+                      <p class="text-sm leading-relaxed text-gray-800">
+                        Desain RPP ini dilandasi oleh
+                        <b>Teori Multiple Intelligences (Howard Gardner)</b> dan
+                        <b
+                          >Konsep Differentiated Instruction (Carol Ann
+                          Tomlinson)</b
+                        >. Dalam kerangka mata kuliah Pembelajaran
+                        Berdiferensiasi dan PPL, siklus ini menunjukkan transisi
+                        mahasiswa dari sekadar "mengajar kelas" menjadi
+                        "mengajar individu". Refleksi bersama Dosen Pembimbing
+                        Lapangan (DPL) menyoroti pentingnya keadilan (equity)
+                        dalam pendidikan, di mana setiap anak berhak mendapat
+                        perlakuan pedagogis yang tepat.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SECTION SIKLUS 3 -->
+              <div
+                class="bg-white rounded-2xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden"
+              >
+                <div class="bg-[#E8F0FE] px-6 py-4 border-b border-[#D2E3FC]">
+                  <h4
+                    class="text-lg font-bold text-[#1967D2] font-['Poppins'] flex items-center gap-2"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
+                    </svg>
+                    Siklus 3: Model PjBL Terintegrasi TPACK
+                  </h4>
+                </div>
+
+                <div class="p-6 grid grid-cols-1 lg:grid-cols-1">
+                  <div class="lg:col-span-4 flex flex-col h-full">
+                    <div
+                      class="w-full h-[350px] bg-gray-50 rounded-xl border border-gray-200 overflow-hidden relative mb-4"
+                    >
+                      <div
+                        class="absolute inset-0 flex flex-col items-center justify-center z-0 text-gray-400"
+                      >
+                        <svg
+                          class="w-10 h-10 mb-2 opacity-50"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.5"
+                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                          ></path>
+                        </svg>
+                        <span class="text-sm font-medium"
+                          >Memuat Dokumen...</span
+                        >
+                      </div>
+                      <iframe
+                        src="dokumen/siklus3.pdf"
+                        class="w-full h-full relative z-10 bg-transparent"
+                        title="RPP Siklus 3"
+                      ></iframe>
+                    </div>
+                    <a
+                      href="dokumen/siklus3.pdf"
+                      download="RPP_Siklus_3.pdf"
+                      class="mt-auto w-full flex items-center justify-center gap-2 py-2.5 bg-[#2D4059] text-white rounded-xl hover:bg-[#1a2636] transition-colors font-semibold text-sm"
+                    >
+                      <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2.5"
+                          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                        ></path>
+                      </svg>
+                      Unduh RPP Siklus 3
+                    </a>
+                  </div>
+
+                  <div class="lg:col-span-8 space-y-4 text-gray-700">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div
+                        class="bg-gray-50 p-4 rounded-xl border border-gray-100"
+                      >
+                        <h5
+                          class="font-bold text-[#2D4059] mb-2 flex items-center gap-2"
+                        >
+                          <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                          Konteks
+                        </h5>
+                        <p class="text-sm leading-relaxed">
+                          Pada fase puncak PPL ini, RPP dikembangkan menggunakan
+                          pendekatan Student-Centered Learning berbasis Proyek
+                          (PjBL) yang dipadukan dengan pemanfaatan media digital
+                          dan alat teknologi interaktif (TPACK).
+                        </p>
+                      </div>
+                      <div
+                        class="bg-gray-50 p-4 rounded-xl border border-gray-100"
+                      >
+                        <h5
+                          class="font-bold text-[#2D4059] mb-2 flex items-center gap-2"
+                        >
+                          <span
+                            class="w-2 h-2 rounded-full bg-green-500"
+                          ></span>
+                          Tujuan
+                        </h5>
+                        <p class="text-sm leading-relaxed">
+                          Mendorong kemampuan berpikir tingkat tinggi (HOTS),
+                          kolaborasi kelompok, memecahkan masalah kontekstual,
+                          dan melatih kemandirian peserta didik dalam
+                          menghasilkan produk karya nyata.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div
+                        class="bg-gray-50 p-4 rounded-xl border border-gray-100"
+                      >
+                        <h5
+                          class="font-bold text-[#2D4059] mb-2 flex items-center gap-2"
+                        >
+                          <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+                          Kelebihan
+                        </h5>
+                        <p class="text-sm leading-relaxed">
+                          Siswa sangat aktif berkolaborasi dan mengembangkan
+                          kreativitas. Penggunaan teknologi media interaktif
+                          membuat materi abstrak lebih mudah dipahami dan sangat
+                          relevan dengan zaman.
+                        </p>
+                      </div>
+                      <div
+                        class="bg-gray-50 p-4 rounded-xl border border-gray-100"
+                      >
+                        <h5
+                          class="font-bold text-[#2D4059] mb-2 flex items-center gap-2"
+                        >
+                          <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                          Kekurangan
+                        </h5>
+                        <p class="text-sm leading-relaxed">
+                          Membutuhkan alokasi waktu ekstensi karena fase
+                          pengerjaan proyek sulit diselesaikan dalam satu
+                          pertemuan. Terkadang dinamika kelompok memunculkan
+                          masalah <i>free-rider</i> jika tidak dipantau ketat.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div
+                      class="bg-[#FFF9F3] p-4 rounded-xl border border-[#F2E5D5] mt-2"
+                    >
+                      <h5
+                        class="font-bold text-[#E67E22] mb-2 flex items-center gap-2"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"
+                          ></path>
+                        </svg>
+                        Analisis Kajian Teori (Integrasi PPL Terbimbing)
+                      </h5>
+                      <p class="text-sm leading-relaxed text-gray-800">
+                        Desain ini mencerminkan puncak capaian PPL yaitu
+                        penguasaan <b>Konstruktivisme Sosial</b> dan kerangka
+                        <b
+                          >TPACK (Technological Pedagogical Content
+                          Knowledge)</b
+                        >. Praktikan membuktikan kemampuannya meramu pemahaman
+                        konten (materi), kemampuan pedagogi (PjBL), dan
+                        pemanfaatan teknologi secara bersamaan. Evaluasi PPL
+                        Terbimbing di fase ini menunjukkan keberhasilan
+                        perpindahan paradigma dari
+                        <i>Teacher-Centered</i> (Siklus 1) menjadi
+                        <i>Student-Centered Learning</i>.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========== AKHIR RPP ========== -->
+
+          <!-- MEDIA PEMBELAJARAN (dimodifikasi) -->
+          <div class="mt-16 pt-10 border-t border-gray-200">
+            <!-- Judul Bagian Media Ajar -->
+            <div class="flex items-center gap-3 mb-8">
+              <div class="p-3 bg-[#FEF3C7] text-[#D97706] rounded-xl shadow-sm">
+                <!-- Icon Projector Screen / Presentation -->
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M7 4v16M17 4v16M3 8h18M3 16h18"
+                  ></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-[#2D4059] font-['Poppins']">
+                Media Pembelajaran
+              </h3>
+            </div>
+
+            <p class="text-sm text-gray-600 mb-8 max-w-3xl leading-relaxed">
+              Berikut merupakan artefak media ajar berbasis teknologi informasi
+              yang dikembangkan untuk mendukung penyampaian materi secara
+              visual, kontekstual, dan interaktif pada tiap siklus bimbingan
+              PPL.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
+              <!-- CARD MEDIA AJAR SIKLUS 1 -->
+              <div
+                class="bg-white rounded-2xl p-5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-100 flex flex-col h-full hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] transition-all duration-300"
+              >
+                <div class="mb-4">
+                  <span
+                    class="inline-flex items-center px-4 py-1.5 bg-[#FEF3C7] text-[#D97706] text-sm font-bold rounded-lg font-['Poppins']"
+                  >
+                    Siklus 1
+                  </span>
+                </div>
+
+                <!-- PPT / 16:9 Slide Preview Box (File Lokal) -->
+                <div
+                  class="w-full aspect-video bg-gray-900 rounded-xl border border-gray-200 overflow-hidden relative mb-5 shadow-inner"
+                >
+                  <!-- Icon Loading / Fallback ketika PDF dimuat -->
+                  <div
+                    class="absolute inset-0 flex flex-col items-center justify-center z-0 text-gray-400"
+                  >
+                    <svg
+                      class="w-10 h-10 mb-2 opacity-50 text-gray-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                    <span class="text-xs">Memuat Slide Presentasi...</span>
+                  </div>
+                  <!-- Iframe memanggil berkas slide lokal dalam format PDF (Akurat ke rasio 16:9) -->
+                  <iframe
+                    src="dokumen/media1.pdf"
+                    class="w-full h-full relative z-10 bg-transparent border-0"
+                    title="Slide Presentasi Siklus 1"
+                  ></iframe>
+                </div>
+
+                <div class="space-y-2 mb-6">
+                  <h5 class="font-bold text-[#2D4059]">
+                    Salindia Konsep & Peta Pikiran
+                  </h5>
+                </div>
+
+                <!-- Tombol Download File Lokal -->
+                <a
+                  href="dokumen/media1.pdf"
+                  download="Media_Ajar_Siklus_1.pdf"
+                  class="mt-auto w-full flex items-center justify-center gap-2 py-3 bg-[#2D4059] text-white rounded-xl hover:bg-[#1a2636] transition-colors font-semibold text-sm"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.5"
+                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                    ></path>
+                  </svg>
+                  Unduh
+                </a>
+              </div>
+
+              <!-- CARD MEDIA AJAR SIKLUS 2 -->
+              <div
+                class="bg-white rounded-2xl p-5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-100 flex flex-col h-full hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] transition-all duration-300"
+              >
+                <div class="mb-4">
+                  <span
+                    class="inline-flex items-center px-4 py-1.5 bg-[#FEF3C7] text-[#D97706] text-sm font-bold rounded-lg font-['Poppins']"
+                  >
+                    Siklus 2
+                  </span>
+                </div>
+
+                <!-- PPT / 16:9 Slide Preview Box (File Lokal) -->
+                <div
+                  class="w-full aspect-video bg-gray-900 rounded-xl border border-gray-200 overflow-hidden relative mb-5 shadow-inner"
+                >
+                  <div
+                    class="absolute inset-0 flex flex-col items-center justify-center z-0 text-gray-400"
+                  >
+                    <svg
+                      class="w-10 h-10 mb-2 opacity-50 text-gray-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                    <span class="text-xs">Memuat Slide Presentasi...</span>
+                  </div>
+                  <iframe
+                    src="dokumen/media2.pdf"
+                    class="w-full h-full relative z-10 bg-transparent border-0"
+                    title="Slide Presentasi Siklus 2"
+                  ></iframe>
+                </div>
+
+                <div class="space-y-2 mb-6">
+                  <h5 class="font-bold text-[#2D4059]">Media Ajar Siklus 2</h5>
+                </div>
+
+                <!-- Tombol Download File Lokal -->
+                <a
+                  href="dokumen/media2.pdf"
+                  download="Media_Ajar_Siklus_2.pdf"
+                  class="mt-auto w-full flex items-center justify-center gap-2 py-3 bg-[#2D4059] text-white rounded-xl hover:bg-[#1a2636] transition-colors font-semibold text-sm"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.5"
+                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                    ></path>
+                  </svg>
+                  Unduh
+                </a>
+              </div>
+
+              <!-- CARD MEDIA AJAR SIKLUS 3 -->
+              <div
+                class="bg-white rounded-2xl p-5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-100 flex flex-col h-full hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] transition-all duration-300"
+              >
+                <div class="mb-4">
+                  <span
+                    class="inline-flex items-center px-4 py-1.5 bg-[#FEF3C7] text-[#D97706] text-sm font-bold rounded-lg font-['Poppins']"
+                  >
+                    Siklus 3
+                  </span>
+                </div>
+
+                <!-- PPT / 16:9 Slide Preview Box (File Lokal) -->
+                <div
+                  class="w-full aspect-video bg-gray-900 rounded-xl border border-gray-200 overflow-hidden relative mb-5 shadow-inner"
+                >
+                  <div
+                    class="absolute inset-0 flex flex-col items-center justify-center z-0 text-gray-400"
+                  >
+                    <svg
+                      class="w-10 h-10 mb-2 opacity-50 text-gray-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                    <span class="text-xs">Memuat Slide Presentasi...</span>
+                  </div>
+                  <iframe
+                    src="dokumen/media3.pdf"
+                    class="w-full h-full relative z-10 bg-transparent border-0"
+                    title="Slide Presentasi Siklus 3"
+                  ></iframe>
+                </div>
+
+                <div class="space-y-2 mb-6">
+                  <h5 class="font-bold text-[#2D4059]">Media Ajar Siklus 3</h5>
+                </div>
+
+                <!-- Tombol Download File Lokal -->
+                <a
+                  href="dokumen/media3.pdf"
+                  download="Media_Ajar_Siklus3"
+                  class="mt-auto w-full flex items-center justify-center gap-2 py-3 bg-[#2D4059] text-white rounded-xl hover:bg-[#1a2636] transition-colors font-semibold text-sm"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.5"
+                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                    ></path>
+                  </svg>
+                  Unduh
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- HASIL KARYA SISWA (tetap) -->
+          <!-- (bagian ini sama seperti yang Anda berikan, tidak diubah) -->
+          <div class="space-y-6">
+            <div>
+              <h4
+                class="font-heading text-lg font-bold text-navy border-b-2 border-apricot pb-2 flex items-center gap-2"
+              >
+                🧑‍🎓 Ruang Karya Praktik Murid
+              </h4>
+              <p class="text-sm text-darkText mt-2 italic">
+                Hasil proyek literasi digital dalam bentuk poster dan video
+                edukasi.
+                <strong>
+                  Klik pada kartu untuk menonton/melihat detail karya.
+                </strong>
+              </p>
+            </div>
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr"
+            >
+              <!-- Karya 1 - 5 sama seperti kode Anda, tetap -->
+              <div
+                class="journal-card rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02] group"
+                data-karya="saring"
+              >
+                <div class="relative bg-warmGray/30 pb-3">
+                  <div
+                    class="aspect-[4/3] bg-gradient-to-br from-navy/80 to-navy/40 flex items-center justify-center relative overflow-hidden"
+                  >
+                    <img
+                      src="img/karya1.png"
+                      alt="Poster"
+                      class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition"
+                    />
+                    <div
+                      class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all"
+                    >
+                      <span
+                        class="bg-apricot/90 text-navy text-xs font-bold px-3 py-1 rounded-full"
+                      >
+                        🔍 Lihat Poster
+                      </span>
+                    </div>
+                  </div>
+                  <div class="p-4">
+                    <div class="flex justify-between items-start">
+                      <span
+                        class="text-[10px] font-bold uppercase bg-apricot/30 text-navy px-2 py-0.5 rounded-full border border-navy"
+                      >
+                        Poster 
+                    </span>
+                    </div>
+                    <h5 class="font-heading text-md font-bold text-navy mt-2">
+                      📢 Poster Karya Siswa
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <!-- Karya 2 - 5 (singkat) -->
+              <div
+                class="journal-card rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02] group"
+                data-karya="aturwantom"
+              >
+                <div class="relative bg-warmGray/30 pb-3">
+                  <div
+                    class="aspect-[4/3] bg-gradient-to-br from-apricot/60 to-navy/60 flex items-center justify-center relative"
+                  >
+                    <img
+                      src="img/karya2.png"
+                      class="w-full h-full object-cover"
+                    />
+                    <div                      class="absolute inset-0 flex items-center justify-center"
+                    >
+                      <div
+                        class="bg-black/60 rounded-full p-3 backdrop-blur-sm"
+                      >
+                  
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="p-4">
+                    <div class="flex justify-between">
+                      <span
+                        class="text-[10px] font-bold uppercase bg-red-100 text-navy px-2 py-0.5 rounded-full border border-navy"
+                      >
+                        🎥 Poster
+                      </span>
+                    </div>
+                    <h5 class="font-heading text-md font-bold text-navy mt-2">
+                      ⏰ Poster Karya Siswa
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="journal-card rounded-2xl overflow-hidden cursor-pointer transition-all hover:scale-[1.02] group"
+                data-karya="literasi"
+              >
+                <div class="relative bg-warmGray/30 pb-3">
+                  <div
+                    class="aspect-[4/3] bg-gradient-to-br from-navy/70 to-navy/30 flex items-center justify-center"
+                  >
+                    <img
+                      src="img/karya3.jpg"
+                      class="w-full h-full object-cover"
+                    />
+                    <div
+                      class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                    >
+                      <span
+                        class="bg-apricot/90 px-3 py-1 rounded-full text-xs"
+                      >
+                        📄 Poster
+                      </span>
+                    </div>
+                  </div>
+                  <div class="p-4">
+                    <span
+                      class="text-[10px] font-bold uppercase bg-apricot/30 px-2 py-0.5 rounded-full"
+                    >
+                      Poster Karya Siswa
+                    </span>
+                    <h5 cla
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
+          <!-- Dokumentasi (tetap) -->
+          <div class="space-y-4">
+            <h4
+              class="font-heading text-lg font-bold text-navy border-b-2 border-navy/20 pb-2"
+            >
+              📸 Dokumentasi Pembelajaran
+            </h4>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <img
+                src="img/mengajar 2.jpeg"
+                alt="Dok 1"
+                class="rounded-lg border border-navy/20 w-full object-cover aspect-video"
+              />
+              <img
+                src="img/mengajar 3.jpeg"
+                alt="Dok 2"
+                class="rounded-lg border border-navy/20 w-full object-cover aspect-video"
+              />
+              <img
+                src="img/mengajar 1.jpeg"
+                alt="Dok 3"
+                class="rounded-lg border border-navy/20 w-full object-cover aspect-video"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- LAMPIRAN 7 & 8 tetap -->
+        <div class="journal-card p-6 sm:p-8 rounded-3xl space-y-6">
+          <h3
+            class="font-heading text-xl font-bold text-navy flex items-center gap-2"
+          >
+            📋 Lampiran 7 – Penilaian Penyusunan Perangkat Pembelajaran
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div
+              class="bg-warmGray/20 p-4 rounded-xl border border-navy/20 text-center space-y-2"
+            >
+
+              <h4 class="font-heading text-sm font-bold text-navy">
+                Penilaian 1 (RPP Siklus I)
+              </h4>
+              <button
+                class="journal-btn px-3 py-1 bg-apricot/20 text-navy rounded-lg text-xs font-bold w-full"
+              >
+                <a href="https://drive.google.com/file/d/1Ly0BckX0LOrcMctEddI2h31C_Bd9Ryi_/view?usp=sharing" target="_blank">Unduh</a>
+              </button>
+            </div>
+            <div
+              class="bg-warmGray/20 p-4 rounded-xl border border-navy/20 text-center space-y-2"
+            >
+
+              <h4 class="font-heading text-sm font-bold text-navy">
+                Penilaian 2 (RPP Siklus II)
+              </h4>
+              <button
+                
+                class="journal-btn px-3 py-1 bg-apricot/20 text-navy rounded-lg text-xs font-bold w-full"
+              >
+            <a href="https://drive.google.com/file/d/1CgT8CgIuPXl7Mst-yYWImhPntTL7JJop/view?usp=sharing" target="_blank">Unduh</a>
+              </button>
+            </div>
+            <div
+              class="bg-warmGray/20 p-4 rounded-xl border border-navy/20 text-center space-y-2"
+            >
+
+              <h4 class="font-heading text-sm font-bold text-navy">
+                Penilaian 3 (RPP Siklus III)
+              </h4>
+              <button
+                
+                class="journal-btn px-3 py-1 bg-apricot/20 text-navy rounded-lg text-xs font-bold w-full"
+              >
+                <a href="https://drive.google.com/file/d/1dUYkvjT7-GoqtddvzgMN6moN9PLiEOr9/view?usp=sharing" target="_blank">Unduh</a>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="journal-card p-6 sm:p-8 rounded-3xl space-y-6">
+          <h3
+            class="font-heading text-xl font-bold text-navy flex items-center gap-2"
+          >
+            🍎 Lampiran 8 – Penilaian Praktik Mengajar
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div
+              class="bg-warmGray/20 p-4 rounded-xl border border-navy/20 text-center space-y-2"
+            >
+
+              <h4 class="font-heading text-sm font-bold text-navy">Siklus I</h4>
+              <button
+                
+                class="journal-btn px-3 py-1 bg-apricot/20 text-navy rounded-lg text-xs font-bold w-full"
+              >
+               <a href="https://drive.google.com/file/d/1v0x7_J_0IyYeNldddTXGMwp8wqPxvb5d/view?usp=sharing" target="_blank">Unduh</a>
+              </button>
+            </div>
+            <div
+              class="bg-warmGray/20 p-4 rounded-xl border border-navy/20 text-center space-y-2"
+            >
+
+              <h4 class="font-heading text-sm font-bold text-navy">
+                Siklus II
+              </h4>
+              <button
+                
+                class="journal-btn px-3 py-1 bg-apricot/20 text-navy rounded-lg text-xs font-bold w-full"
+              >
+                <a href="https://drive.google.com/file/d/1Ss_tpGRs5vS2V8PT9iN15Hc2i42IetKD/view?usp=sharing" target="_blank">Unduh</a>
+              </button>
+            </div>
+            <div
+              class="bg-warmGray/20 p-4 rounded-xl border border-navy/20 text-center space-y-2"
+            >
+
+              <h4 class="font-heading text-sm font-bold text-navy">
+                Siklus III
+              </h4>
+              <button
+                
+                class="journal-btn px-3 py-1 bg-apricot/20 text-navy rounded-lg text-xs font-bold w-full"
+              >
+             <a href="https://drive.google.com/file/d/1XO3Re17V3GktJ4mo-e4_HWShF_42a98r/view?usp=sharing" target="_blank">Unduh</a>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Model Guru yang Dituju (tetap) -->
+        <div class="journal-card p-6 sm:p-8 rounded-3xl space-y-6">
+          <h3
+            class="font-heading text-xl font-bold text-navy flex items-center gap-2"
+          >
+            🌟 Model Guru Profesional yang Dituju
+          </h3>
+          <div class="space-y-4">
+            <div>
+              <h4 class="font-heading text-base font-bold text-navy">
+                Misi Utama
+              </h4>
+              <p class="text-sm text-darkText leading-relaxed">
+                Menjadi pendidik yang menghidupkan ruang kelas inklusif,
+                mendorong setiap siswa berpikir kritis, dan membangun karakter
+                melalui pembelajaran Informatika yang kontekstual dan humanis.
+              </p>
+            </div>
+            <div>
+              <h4 class="font-heading text-base font-bold text-navy">
+                Kompetensi yang Dibangun
+              </h4>
+              <ul class="list-disc pl-5 text-sm text-darkText space-y-1">
+                <li>
+                  Menguasai strategi pembelajaran berdiferensiasi konten,
+                  proses, dan produk.
+                </li>
+                <li>
+                  Mampu mengintegrasikan teknologi secara pedagogis (TPACK).
+                </li>
+                <li>Terampil melakukan asesmen formatif dan reflektif.</li>
+                <li>
+                  Memiliki keterampilan komunikasi empatik dengan siswa dan
+                  kolega.
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-heading text-base font-bold text-navy">
+                Karakter Guru Ideal
+              </h4>
+              <p class="text-sm text-darkText leading-relaxed">
+                Sabar, adaptif, rendah hati, selalu belajar, dan menjunjung
+                tinggi nilai‑nilai “Ngajeni lan Ngopeni” (menghargai dan
+                merawat). Guru bukan hanya sumber ilmu, tetapi juga teladan dan
+                sahabat bagi siswa.
+              </p>
+            </div>
+            <div
+              class="bg-apricot/10 border-l-4 border-apricot p-4 rounded-r-xl"
+            >
+              <p class="font-handwritten text-xl text-navy italic">
+                “Guru yang baik mengajar; guru yang hebat menginspirasi.”
+              </p>
+              <p class="text-[10px] font-bold text-navy mt-1">
+                — William Arthur Ward
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a
+            href="#/home"
+            class="journal-btn inline-flex items-center px-6 py-3 bg-warmOffWhite text-navy text-sm font-bold uppercase tracking-wider rounded-xl"
+            >← Kembali ke Beranda</a
+          >
+        </div>
+      </section>
+
+      <!-- E-PORTOFOLIO 2 (tetap) -->
+      <section
+        id="page-portofolio2"
+        class="portfolio-page hidden max-w-4xl mx-auto space-y-12"
+      >
+        <!-- ... konten portofolio 2 tidak diubah ... -->
+        <div class="text-center space-y-2">
+          <span class="font-handwritten text-3xl text-navy font-bold block"
+            >📂 E‑Portofolio 2</span
+          >
+          <h2 class="font-heading text-2xl sm:text-3xl font-bold text-navy">
+            Refleksi Akhir PPL Terbimbing & Filosofi Mengajar
+          </h2>
+          <div class="w-24 h-1.5 bg-apricot mx-auto rounded-full"></div>
+          <p class="text-sm text-navy/70 mt-2 italic">
+            “Merangkai makna, menumbuhkan nilai, menjadi guru yang merdeka.”
+          </p>
+        </div>
+        <div class="journal-card p-6 sm:p-8 rounded-3xl space-y-8">
+          <h3
+            class="font-heading text-xl font-bold text-navy flex items-center gap-2"
+          >
+            📖 Refleksi Akhir Praktik Pengalaman Lapangan Terbimbing
+          </h3>
+          <div class="space-y-4">
+            <h4
+              class="font-heading text-lg font-bold text-navy border-b-2 border-apricot pb-2"
+            >
+            
+            <p class="text-sm text-darkText">
+              Selama mengikuti PPL Terbimbing, saya belajar bahwa menjadi guru tidak hanya tentang menguasai materi, tetapi juga tentang memahami peserta didik, menciptakan pengalaman belajar yang bermakna, serta terus melakukan refleksi terhadap setiap proses pembelajaran. Dari tahap observasi hingga praktik mengajar, saya memperoleh banyak pengalaman yang membantu saya memahami tantangan dan dinamika dunia pendidikan secara lebih nyata.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+            </div>
+          </div>
+          <div class="space-y-4">
+            <h4
+              class="font-heading text-lg font-bold text-navy border-b-2 border-apricot pb-2"
+            >
+<p class="text-sm text-darkText">
+              Salah satu tantangan yang saya hadapi adalah bagaimana melibatkan seluruh peserta didik agar aktif dalam pembelajaran. Setiap kelas memiliki karakteristik yang berbeda, sehingga saya perlu menyesuaikan strategi, media, dan pendekatan yang digunakan. Dari pengalaman tersebut, saya belajar bahwa fleksibilitas, komunikasi, dan kesiapan untuk terus belajar merupakan kemampuan yang penting bagi seorang guru.
+            </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+            </div>
+            <p class="text-sm text-darkText">
+              Berbagai masukan dari guru pamong dan dosen pembimbing menjadi bekal berharga bagi saya untuk terus berkembang. Pengalaman selama PPL Terbimbing mengajarkan bahwa proses menjadi guru adalah perjalanan belajar yang tidak pernah berhenti. Setiap tantangan, keberhasilan, dan refleksi merupakan bagian dari langkah kecil menuju pendidik yang lebih baik.
+            </p>
+            
+          </div>
+        </div>
+        <div class="journal-card p-6 sm:p-8 rounded-3xl space-y-6">
+          <h3
+            class="font-heading text-xl font-bold text-navy flex items-center gap-2"
+          >
+            🌱 Filosofi Mengajar
+          </h3>
+          <p class="text-sm text-darkText">
+            Saya percaya bahwa setiap peserta didik memiliki potensi untuk berkembang ketika diberikan kesempatan, dukungan, dan lingkungan belajar yang tepat. Oleh karena itu, pembelajaran tidak seharusnya hanya berfokus pada penyampaian materi, tetapi juga pada proses membantu peserta didik menemukan cara terbaik untuk belajar dan bertumbuh.
+</p>
+            <p class="text-sm text-darkText">
+            Dalam praktik mengajar, saya berusaha menciptakan pembelajaran yang bermakna, relevan, dan melibatkan peserta didik secara aktif. Saya meyakini bahwa pengetahuan tidak sekadar diberikan oleh guru, melainkan dibangun melalui pengalaman, diskusi, eksplorasi, dan refleksi. Pandangan ini sejalan dengan pendekatan konstruktivisme yang menempatkan peserta didik sebagai subjek utama dalam proses belajar.
+</p>
+<p class="text-sm text-darkText">
+            Bagi saya, menjadi guru berarti menjadi pembelajar sepanjang hayat. Setiap kelas, setiap peserta didik, dan setiap pengalaman mengajar selalu menghadirkan pelajaran baru. Karena itu, saya berkomitmen untuk terus belajar, menerima umpan balik, dan mengembangkan diri agar dapat memberikan pengalaman belajar yang lebih baik bagi peserta didik di masa depan.
+          </p>
+        </div>
+        <div class="text-center">
+          <a
+            href="#/home"
+            class="journal-btn inline-flex items-center px-6 py-3 bg-warmOffWhite text-navy text-sm font-bold uppercase tracking-wider rounded-xl"
+            >← Kembali ke Beranda</a
+          >
+        </div>
+      </section>
+
+    <!-- ==================== FOOTER (3 KOLOM) ==================== -->
+    <footer
+      class="bg-navy text-warmOffWhite pt-16 pb-10 mt-16 border-t-4 border-apricot transition-all"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-left"
+        >
+          <div class="space-y-4">
+            <h3 class="font-heading text-lg font-bold text-apricot">
+              E‑Portofolio
+            </h3>
+            <p class="text-xs sm:text-sm leading-relaxed text-warmOffWhite/80">
+              Portofolio digital ini disusun sebagai bentuk dokumentasi dan
+              refleksi selama mengikuti program Pendidikan Profesi Guru (PPG)
+              Prajabatan di Universitas Negeri Yogyakarta.
+            </p>
+            <div class="space-y-3 pt-2">
+              <a
+                href="https://instagram.com/_heniaaa"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center space-x-3 text-warmOffWhite/80 hover:text-apricot transition-colors group"
+                ><span
+                  class="w-8 h-8 rounded-lg bg-warmOffWhite/10 flex items-center justify-center group-hover:bg-apricot/20 transition-colors"
+                  ><svg
+                    class="w-4 h-4 text-apricot"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect
+                      x="2"
+                      y="2"
+                      width="20"
+                      height="20"
+                      rx="5"
+                      stroke-width="2"
+                    />
+                    <circle cx="12" cy="12" r="5" stroke-width="2" />
+                    <circle
+                      cx="17.5"
+                      cy="6.5"
+                      r="1"
+                      fill="currentColor"
+                      stroke="none"
+                    /></svg></span
+                ><span class="text-xs font-medium">@_heniaaa</span></a
+              >
+              <a
+                href="mailto:heniasi.2025@student.uny.ac.id"
+                class="flex items-center space-x-3 text-warmOffWhite/80 hover:text-apricot transition-colors group"
+                ><span
+                  class="w-8 h-8 rounded-lg bg-warmOffWhite/10 flex items-center justify-center group-hover:bg-apricot/20 transition-colors"
+                  ><svg
+                    class="w-4 h-4 text-apricot"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect
+                      x="2"
+                      y="4"
+                      width="20"
+                      height="16"
+                      rx="3"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M2 7l10 7 10-7"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    /></svg></span
+                ><span class="text-xs font-medium">heniasi@uny.ac.id</span></a
+              >
+            </div>
+          </div>
+          <div class="space-y-4">
+            <h3 class="font-heading text-lg font-bold text-apricot">
+              Navigasi Cepat
+            </h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#/home"
+                  class="text-xs text-warmOffWhite/75 hover:text-apricot transition-colors inline-block py-1"
+                  >🏠 Beranda</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="space-y-4 md:col-span-2 lg:col-span-1">
+            <h3 class="font-heading text-lg font-bold text-apricot">
+              Lokasi Kampus
+            </h3>
+            <div
+              class="rounded-xl overflow-hidden border-2 border-warmOffWhite/20 shadow-lg"
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.2087792197247!2d110.375215074021!3d-7.771354377107408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a582f41d6b6b5%3A0x9c42a1e8c2e2f2!2sUniversitas%20Negeri%20Yogyakarta!5e0!3m2!1sid!2sid!4v1715000000000"
+                width="100%"
+                height="220"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="w-full"
+                title="Lokasi Universitas Negeri Yogyakarta"
+              ></iframe>
+            </div>
+            <p class="text-[10px] text-warmOffWhite/50 leading-relaxed">
+              Kampus Karangmalang, Sleman, Daerah Istimewa Yogyakarta 55281
+            </p>
+          </div>
+        </div>
+        <div class="mt-10 pt-6 border-t border-warmOffWhite/10 text-center">
+          <span class="font-handwritten text-2xl text-apricot/70 block mb-2"
+            >"Proses bertumbuh tidak pernah benar-benar selesai."</span
+          >
+          <p
+            class="text-[10px] text-warmOffWhite/50 uppercase tracking-widest font-semibold"
+          >
+            &copy; 2026 E‑Portfolio PPG Calon Guru Heniasi. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <div
+      id="toastNotification"
+      class="hidden fixed bottom-6 right-6 bg-softPaper text-navy text-xs font-bold px-6 py-4 border-2 border-navy rounded-2xl shadow-[4px_4px_0px_0px_#2D4059] z-50"
+    >
+      <span id="toastText">Menghubungkan ke server...</span>
+    </div>
+
+    <script>
+      const pagesMap = {
+        "#/home": "page-home",
+        "#/profil": "page-profil",
+        "#/portofolio1": "page-portofolio1",
+        "#/portofolio2": "page-portofolio2",
+        "#/penilaian": "page-penilaian",
+        "#/refleksi": "page-refleksi",
+        "#/visi": "page-visi",
+        "#/lampiran": "page-lampiran",
+      };
+
+      function handleRouting() {
+        const hash = window.location.hash || "#/home";
+        const targetPageId = pagesMap[hash] || "page-home";
+        document
+          .querySelectorAll(".portfolio-page")
+          .forEach((p) => p.classList.add("hidden"));
+        const target = document.getElementById(targetPageId);
+        if (target) target.classList.remove("hidden");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        document.querySelectorAll(".nav-link").forEach((link) => {
+          link.getAttribute("href") === hash
+            ? link.classList.add("bg-apricot/30", "border-navy")
+            : link.classList.remove("bg-apricot/30", "border-navy");
+        });
+        document.getElementById("mobileDrawer")?.classList.add("hidden");
+      }
+
+      window.addEventListener("hashchange", handleRouting);
+      window.addEventListener("DOMContentLoaded", handleRouting);
+
+      document
+        .getElementById("menuToggleButton")
+        ?.addEventListener("click", () =>
+          document.getElementById("mobileDrawer")?.classList.toggle("hidden"),
+        );
+      document
+        .getElementById("closeDrawerButton")
+        ?.addEventListener("click", () =>
+          document.getElementById("mobileDrawer")?.classList.add("hidden"),
+        );
+      document
+        .getElementById("mobileDrawer")
+        ?.addEventListener("click", (e) => {
+          if (e.target === document.getElementById("mobileDrawer"))
+            document.getElementById("mobileDrawer").classList.add("hidden");
+        });
+
+      function simulateDownload(filename) {
+        const toast = document.getElementById("toastNotification");
+        const text = document.getElementById("toastText");
+        if (!toast) return;
+        text.innerText = `⏳ Menghubungkan berkas: ${filename}...`;
+        toast.classList.remove("hidden");
+        setTimeout(() => {
+          text.innerText = `✅ Berhasil mengunduh ${filename}`;
+          setTimeout(() => toast.classList.add("hidden"), 2000);
+        }, 1200);
+      }
+    </script>
+  </body>
+</html>
